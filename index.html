@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+	<title>&nbsp;</title>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+				
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" />
+		<!--link rel="stylesheet" type="text/css" href="css/jqm-datebox-1.4.2.min.css"/-->
+		
+		<!--script src="http://code.jquery.com/jquery-1.10.2.min.js"></script-->
+		<script src="lib/jquery-1.11.1.min.js"></script>
+		<script src="lib/jquery.mobile-1.4.0.min.js"></script>
+		
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<script src="js/m2pp_code.js"></script>
+		
+		<script src="lib/fastclick.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+		<!--script src="lib/jqm-datebox-1.4.2.core.min.js"></script>
+		<script src="lib/jqm-datebox-1.4.2.mode.calbox.min.js"></script-->
+		
+
+		<!--script src="JS/yoga.js"></script-->
+		
+		<style>
+			#flights{
+				display:none;
+			}
+			
+			a{
+				text-decoration:none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!-- Start of first page I -->
+		<!--div data-role="panel" data-position="right" data-display="overlay" data-theme="a" data-mini="true" id="my-account" data-dismissible="true">
+			<ul data-role="listview">
+				<li data-icon="false"><a href="#myBookingsPage">My Bookings</a></li>
+			    <li data-icon="false"><a href="#myDetailsPage">My Details</a></li>
+			    <li data-icon="false"><a href="#myFavoritesPage">Favorites</a></li>
+				<li data-icon="false"><a href="#notificationsPage">Notifications</a></li>
+				<li data-icon="false"><a href="#settingsPage">Settings</a></li>
+				<!--li data-icon="false"><a href="#panel-responsive-page2">Contact Us</a></li-->
+			    <!--li data-icon="false" data-theme="a"><a href="#panel-responsive-page2">Log Out</a></li-->			            
+		     </ul>
+	    </div-->
+	    
+	    <!-- Hotels page ------>
+		<div data-role="page" id="hotelsPage" data-theme="a" class="jqm-demos ui-responsive-panel">
+			<!-- Header -->
+			<div data-role="header">
+				<h1>TravelRepublic</h1>
+				
+				<a href="#my-account5" data-icon="gear" data-iconpos="notext" class="ui-btn-right"></a>
+				
+				<div data-role="navbar" class="ui-body-i ui-body" id="service-sel" data-mini="true">
+					<ul>
+						<li><a href="#holidaysPage">Holidays</a></li>
+						<li><a href="#hotelsPage" class="ui-btn-active ui-state-persist">Hotels</a></li>
+						<!--li><a href="#flights">Flights</a></li-->
+						<li><a href="#transfersPage" id="transfers">Transfers</a></li>
+						<!--li><a href="#">Car Hire</a></li-->					
+					</ul>
+				</div>
+								
+			</div>
+			<!-- /header -->
+			<!-- Content    -->
+			<div data-role="content">
+				<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" data-mini="true" id="my-account5" class="my-account" data-dismissible="true">
+			        <ul data-role="listview">
+			            <li data-icon="false"><a href="#myBookingsPage">My Bookings</a></li>
+			            <li data-icon="false"><a href="#myDetailsPage">My Details</a></li>
+			            <li data-icon="false"><a href="#myFavoritesPage">Favorites</a></li>
+						<li data-icon="false"><a href="#notificationsPage">Notifications</a></li>
+						<li data-icon="false"><a href="#settingsPage">Settings</a></li>
+						<!--li data-icon="false"><a href="#panel-responsive-page2">Contact Us</a></li-->
+			            <!--li data-icon="false" data-theme="a"><a href="#panel-responsive-page2">Log Out</a></li-->
+			            
+			         </ul>
+			    </div>
+			    	
+				<div>
+					<!--input type="text" placeholder="Destination"></input-->
+					<form action="" method="post" id="form">
+						<div id="div-destination-hotels" class="ui-field-contain">
+							<label for="destinationHotels">Destination:</label>
+						    <input name="destinationHotels" id="destinationHotels" value="" type="search" placeholder="Destination">
+						    <ul id="suggestHotels" data-role="listview" data-inset="true"></ul>
+						</div>
+																
+						<div class="for-hotels for-holidays">
+							<div class="ui-field-contain">	     
+							    <label for="checkInHotels">Check-In:</label>
+							    <input name="checkInHotels" id="checkInHotels" placeholder="Check-in date" type="date" data-role="datebox" data-options='{"mode": "calbox", "useNewStyle":true, "afterToday":true, "useHeader":false, "useFocus":true, "useButton":false, "useModal":true, "calHighToday":false, "overrideDateFormat":"%d-%b-%Y", "centerHoriz": true, "centerVert": true, "highDays": [0,1,2,3,4,5,6] }'>
+						    </div>
+						    
+						    <div class="ui-field-contain"> 
+							    <label for="checkOutHotels">Check-Out:</label>
+							    <input name="checkOutHotels" id="checkOutHotels" placeholder="Check-out date" type="date" data-role="datebox" data-options='{"mode": "calbox","useNewStyle":true, "afterToday":true, "useHeader":false, "useFocus":true, "useButton":false, "useModal":true, "calHighToday":false, "overrideDateFormat":"%d-%b-%Y", "centerHoriz": true, "centerVert": true, "highDays": [0,1,2,3,4,5,6] }'>
+							</div>
+						</div>
+						
+					    <div class="ui-field-contain for-holidays for-hotels">
+						    <label for="roomsHotels">Rooms:</label>					    
+						    <select name="roomsHotels" id="roomsHotels" data-native-menu="false" data-inline="true" data-mini="true" disabled>
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						    </select>
+						    
+					    </div>
+					    
+					    <!-- implementation for entering room & passenger information -->
+					    <!--ul data-role="listview">
+					    	<li class="ui-field-contain">
+					    		<label for="select-rooms">Rooms:</label>					    
+							    <select name="select-rooms" id="select-rooms" data-native-menu="false" data-inline="true" data-mini="true">
+							        <option value="1">1</option>
+							        <option value="2">2</option>
+							        <option value="3">3</option>
+							    </select>
+					    	</li>
+					    </ul-->
+					    
+					    <div class="ui-field-contain">
+						    <label for="adultsHotels">Adults:</label>
+						    <select name="adultsHotels" id="adultsHotels" data-native-menu="false" data-inline="true" data-mini="true" disabled>
+						        <option value="1">1</option>
+						        <option value="2" selected="selected">2</option>
+						        <option value="3">3</option>
+						    </select>
+						    <label for="childrenHotels">Children:</label>
+						    <select name="childrenHotels" id="childrenHotels" data-native-menu="false" data-inline="true" data-mini="true" disabled>
+						        <option value="0">0</option>
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						    </select>
+						    
+						    <!--label for="infants">Infants:</label><select name="infants" id="infants" class="for-transfers" data-native-menu="false" data-inline="true" data-mini="true">
+						        <option value="0">0</option>
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						    </select-->
+						    
+						    <!-- implement for children ages -->
+						    						    
+					    </div>
+						
+    					<div class="ui-grid-a">
+			                <div class="ui-block-a"><a href="#hotelResultsPage" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini" id="btnSearchHotel">Search</a></div>
+			                <!--div class="ui-block-b"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini">Reset</a></div-->
+			            </div>
+			            
+					</form>
+				</div>
+				
+			</div>
+			<!-- /content -->
+			<!-- footer -->
+			<div data-role="footer">
+				<h4>&copy;2014 Travel Republic Limited.</h4>
+			</div>
+			<!-- /footer -->
+		</div>
+		
+		<!-- Holidays page -->
+		<div data-role="page" id="holidaysPage" data-theme="a" class="jqm-demos ui-responsive-panel">
+			<!-- Header -->
+			<div data-role="header">
+				<h1>TravelRepublic</h1>
+				
+				<a href="#my-account" data-icon="gear" data-iconpos="notext" class="ui-btn-right"></a>
+				
+				<div data-role="navbar" class="ui-body-i ui-body" id="service-sel" data-mini="true">
+					<ul>
+						<li><a href="#holidaysPage" class="ui-btn-active ui-state-persist">Holidays</a></li>
+						<li><a href="#hotelsPage">Hotels</a></li>
+						<!--li><a href="#flights">Flights</a></li-->
+						<li><a href="#transfersPage" id="transfers">Transfers</a></li>
+						<!--li><a href="#">Car Hire</a></li-->
+						
+					</ul>
+				</div>
+								
+			</div>
+			<!-- /header -->
+			<!-- Content    -->
+			<div data-role="content">
+				<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" data-mini="true" id="my-account" class="my-account" data-dismissible="true">
+			        <ul data-role="listview">
+			            <li data-icon="false"><a href="#myBookingsPage">My Bookings</a></li>
+			            <li data-icon="false"><a href="#myDetailsPage">My Details</a></li>
+			            <li data-icon="false"><a href="#myFavoritesPage">Favorites</a></li>
+						<li data-icon="false"><a href="#notificationsPage">Notifications</a></li>
+						<li data-icon="false"><a href="#settingsPage">Settings</a></li>
+						<!--li data-icon="false"><a href="#panel-responsive-page2">Contact Us</a></li-->
+			            <!--li data-icon="false" data-theme="a"><a href="#panel-responsive-page2">Log Out</a></li-->
+			            
+			         </ul>
+			    </div>
+			    	
+				<div>
+					<!--input type="text" placeholder="Destination"></input-->
+					<form action="" method="post" id="form">
+						<div id="div-destination" class="for-hotels for-holidays for-flights ui-field-contain">
+							<label for="destination">Destination:</label>
+						    <input name="destination" id="destinationHolidays" value="" type="search" placeholder="Destination">
+						    <ul id="suggestHolidays" data-role="listview" data-inset="true"></ul>
+						    
+						</div>
+						
+						<!--script>
+							$("#holidaysPage").bind("pageshow", function(e) {
+					
+								$("#destinationHolidays").autocomplete({
+									target: $('#suggestHolidays'),
+									source: 'data.cfc?method=search&returnformat=json&data=simple',
+									link: 'target.html?term=',
+									minLength: 1
+								});
+					
+							});
+						</script-->
+												
+						<div id="div-departureAirport" class="for-holidays for-flights ui-field-contain">
+						    <label for="departureAirport">Departure:</label>
+						    <input name="departureAirport" id="departureAirport" value="" type="search" placeholder="Source">
+						    <ul id="suggestDepartAirport" data-role="listview" data-inset="true"></ul>
+						</div>
+										
+						<div class="for-hotels for-holidays">
+							<div class="ui-field-contain">	     
+							    <label for="checkIn">Check-In:</label>
+							    <input name="checkIn" id="checkIn" placeholder="Check-in date" type="date" data-role="datebox" data-options='{"mode": "calbox","afterToday":true, "useHeader":false, "useFocus":true, "useButton":false, "useModal":true, "calHighToday":false, "overrideDateFormat":"%d-%b-%Y", "centerHoriz": true, "centerVert": true, "highDays": [0,1,2,3,4,5,6] }'>
+						    </div>
+						    
+						    <div class="ui-field-contain"> 
+							    <label for="checkOut">Check-Out:</label>
+							    <input name="checkOut" id="checkOut" placeholder="Check-out date" type="date" data-role="datebox" data-options='{"mode": "calbox","afterToday":true, "useHeader":false, "useFocus":true, "useButton":false, "useModal":true, "calHighToday":false, "overrideDateFormat":"%d-%b-%Y", "centerHoriz": true, "centerVert": true, "highDays": [0,1,2,3,4,5,6] }'>
+							</div>
+						</div>
+						
+					    <div class="ui-field-contain for-holidays for-hotels">
+						    <label for="select-rooms">Room(s):</label>					    
+						    <select name="select-rooms" id="select-rooms" data-native-menu="false" data-inline="true" data-mini="true">
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						    </select>
+						    
+					    </div>
+					    
+					    <!-- implementation for entering room & passenger information -->
+					    <!--ul data-role="listview">
+					    	<li class="ui-field-contain">
+					    		<label for="select-rooms">Rooms:</label>					    
+							    <select name="select-rooms" id="select-rooms" data-native-menu="false" data-inline="true" data-mini="true">
+							        <option value="1">1</option>
+							        <option value="2">2</option>
+							        <option value="3">3</option>
+							    </select>
+					    	</li>
+					    </ul-->
+					    
+					    <div class="ui-field-contain" id="defaultRoom">
+					    	
+						    <label for="adults">Adults:</label><select name="adults" id="adults" data-native-menu="false" data-inline="true" data-mini="true">
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						    </select>
+						    <label for="children">Children:</label><select name="children" id="children" data-native-menu="false" data-inline="true" data-mini="true">
+						        <option value="0">0</option>
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						    </select>
+						    
+						    <!--label for="infants">Infants:</label><select name="infants" id="infants" class="for-transfers" data-native-menu="false" data-inline="true" data-mini="true">
+						        <option value="0">0</option>
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						    </select-->
+						    
+						    <!-- implement for children ages -->
+						    						    
+					    </div>
+					    
+    					 <input type="submit" data-inline="true" value="Search">
+					    
+    					<!--div class="ui-grid-a">
+			                <div class="ui-block-a"><a class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini" onclick="search()">Search</a></div>
+			                <div class="ui-block-b"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini">Reset</a></div>
+			            </div-->
+			            
+					</form>
+				</div>
+				
+			</div>
+			<!-- /content -->
+			<!-- footer -->
+			<div data-role="footer">
+				<h4>&copy;2014 Travel Republic Limited.</h4>
+			</div>
+			<!-- /footer -->
+		</div>
+		
+		
+		
+		<!-- Transfers page --->
+		<div data-role="page" id="transfersPage" data-theme="a" class="jqm-demos ui-responsive-panel">
+			<!-- Header -->
+			<div data-role="header">
+				<h1>TravelRepublic</h1>
+				
+				<a href="#my-account4" data-icon="gear" data-iconpos="notext" class="ui-btn-right"></a>
+				
+				<div data-role="navbar" class="ui-body-i ui-body" id="service-sel" data-mini="true">
+					<ul>
+						<li><a href="#holidaysPage">Holidays</a></li>
+						<li><a href="#hotelsPage" id="hotels">Hotels</a></li>
+						<!--li><a href="#flights">Flights</a></li-->
+						<li><a href="#transfersPage" class="ui-btn-active ui-state-persist">Transfers</a></li>
+						<!--li><a href="#">Car Hire</a></li-->
+						
+					</ul>
+				</div>
+								
+			</div>
+			<!-- /header -->
+			<!-- Content    -->
+			<div data-role="content">
+				<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" data-mini="true" id="my-account4" class="my-account" data-dismissible="true">
+			        <ul data-role="listview">
+			            <li data-icon="false"><a href="#myBookingsPage">My Bookings</a></li>
+			            <li data-icon="false"><a href="#myDetailsPage">My Details</a></li>
+			            <li data-icon="false"><a href="#myFavoritesPage">Favorites</a></li>
+						<li data-icon="false"><a href="#notificationsPage">Notifications</a></li>
+						<li data-icon="false"><a href="#settingsPage">Settings</a></li>
+						<!--li data-icon="false"><a href="#panel-responsive-page2">Contact Us</a></li-->
+			            <!--li data-icon="false" data-theme="a"><a href="#panel-responsive-page2">Log Out</a></li-->
+			            
+			         </ul>
+			    </div>
+			    	
+				<div>
+					<!--input type="text" placeholder="Destination"></input-->
+					<form action="" method="post" id="form">
+					
+						<div class="for-transfers">
+							<div class="ui-field-contain">
+								<label for="airport">Airport:</label>
+							    <input name="airport" id="airport" value="" type="search" placeholder="Airport">
+						    </div>
+						    
+						    <div class="ui-field-contain">
+							    <label for="resort">Resort:</label>
+							    <input name="resort" id="resort" value="" type="search" placeholder="Resort">
+						    </div>
+						    
+							<div class="ui-field-contain">
+								<label for="select-direction">Direction:</label> 
+							    <select name="select-direction" id="select-direction" data-native-menu="false" data-inline="true" data-mini="true">
+							        <option value="two_way">Two Way</option>
+							        <option value="airport_resort">Airport to Resort</option>
+							        <option value="resort_airport">Resort to Airport</option>
+							    </select> 
+							</div>
+						</div>
+								
+						<div class="for-flights for-transfers">	
+						    <div class="ui-field-contain"> 
+							    <label for="date-arrival">Arrival Date:</label>
+							    <input name="date-arrival" id="date-arrival" class="for-transfers" value="" type="date">
+						    </div>
+						    
+						    <div class="ui-field-contain">   
+							    <label for="date-return">Return Date:</label>
+							    <input name="date-return" id="date-return" value="" type="date">
+							</div>
+						</div>
+									    
+					    <div class="ui-field-contain">
+						    <label for="adults">Adults:</label><select name="adults" id="adults" data-native-menu="false" data-inline="true" data-mini="true">
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						    </select>
+						    <label for="children">Children:</label><select name="children" id="children" data-native-menu="false" data-inline="true" data-mini="true">
+						        <option value="0">0</option>
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						    </select>
+						    
+						    <label for="infants">Infants:</label><select name="infants" id="infants" class="for-transfers" data-native-menu="false" data-inline="true" data-mini="true">
+						        <option value="0">0</option>
+						        <option value="1">1</option>
+						        <option value="2">2</option>
+						        <option value="3">3</option>
+						    </select>
+											    						    
+					    </div>
+					    
+    					<div class="ui-grid-a">
+			                <div class="ui-block-a"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini">Search</a></div>
+			                <div class="ui-block-b"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini">Reset</a></div>
+			            </div>
+			            
+					</form>
+				</div>
+				
+			</div>
+			<!-- /content -->
+			<!-- footer -->
+			<div data-role="footer">
+				<h4>&copy;2014 Travel Republic Limited.</h4>
+			</div>
+			<!-- /footer -->
+		</div>
+	
+		<!-- My Details page -->
+		
+		<div data-role="page" id="myDetailsPage" data-theme="a" class="jqm-demos ui-responsive-panel">
+			<div data-role="header" id="page1-header">
+				<h1>TravelRepublic</h1>
+				<a href="#hotelsPage" class="home" id="home1" data-icon="home" data-iconpos="notext"></a>
+				<a href="#my-account1" data-icon="gear" data-iconpos="notext" class="ui-btn-right"></a>
+			</div>
+			
+			<div data-role="content">
+				<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" data-mini="true" id="my-account1" class="my-account" data-dismissible="true">
+			    	<ul data-role="listview">
+			            <li data-icon="false"><a href="#myBookingsPage">My Bookings</a></li>
+			            <li data-icon="false"><a href="#myDetailsPage">My Details</a></li>
+			            <li data-icon="false"><a href="#myFavoritesPage">Favorites</a></li>
+						<li data-icon="false"><a href="#notificationsPage">Notifications</a></li>
+						<li data-icon="false"><a href="#settingsPage">Settings</a></li>
+						<!--li data-icon="false"><a href="#panel-responsive-page2">Contact Us</a></li-->
+			            <!--li data-icon="false" data-theme="a"><a href="#panel-responsive-page2">Log Out</a></li-->
+			            
+			         </ul>
+			    </div>
+				<ul data-role="listview">
+			    	<li data-role="list-divider">My Details</li>
+			        <li data-role="fieldcontain">
+			        	<label for="title">Title:</label>
+			        	<input type="text" name="title" id="title" value=""/>
+			        </li>
+			        
+			        <li data-role="fieldcontain">
+			        	<label for="fname">First Name:</label>
+			        	<input type="text" name="fname" id="fname" value=""/>
+			        </li>
+			        
+			        <li data-role="fieldcontain">
+			        	<label for="lname">Last Name:</label>
+			        	<input type="text" name="lname" id="lname" value=""/>
+			        </li>
+			        
+			        <li data-role="fieldcontain">
+			        	<label for="email">Email:</label>
+			        	<input type="email" name="email" id="email" value=""/>
+			        </li>
+			        
+			        <li data-role="fieldcontain">
+			        	<label for="telephone">Telephone:</label>
+			        	<input type="text" name="telephone" id="telephone" value=""/>
+			        </li>
+			 	</ul>
+				
+			</div>
+			
+			
+			<div data-role="footer">
+				<h4>&copy;2014 Travel Republic Limited.</h4>
+			</div>
+		</div>
+		
+		<!-- My Bookings page -->
+		
+		<div data-role="page" id="myBookingsPage" data-theme="a" class="jqm-demos ui-responsive-panel">
+			<div data-role="header" id="page1-header">
+				<h1>TravelRepublic</h1>
+				<a href="#hotelsPage" class="home" id="home1" data-icon="home" data-iconpos="notext"></a>
+				<a href="#my-account2" data-icon="gear" data-iconpos="notext" class="ui-btn-right"></a>
+			</div>
+			
+			<div data-role="content">
+				<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" data-mini="true" id="my-account2" class="my-account" data-dismissible="true">
+			    	<ul data-role="listview">
+			            <li data-icon="false"><a href="#myBookingsPage">My Bookings</a></li>
+			            <li data-icon="false"><a href="#myDetailsPage">My Details</a></li>
+			            <li data-icon="false"><a href="#myFavoritesPage">Favorites</a></li>
+						<li data-icon="false"><a href="#notificationsPage">Notifications</a></li>
+						<li data-icon="false"><a href="#settingsPage">Settings</a></li>
+						<!--li data-icon="false"><a href="#panel-responsive-page2">Contact Us</a></li-->
+			            <!--li data-icon="false" data-theme="a"><a href="#panel-responsive-page2">Log Out</a></li-->
+			            
+			         </ul>
+			    </div>
+				<ul data-role="listview">
+			    	<li data-role="list-divider">My Bookings</li>
+			    	<li><a href="#">ACM/0001</a></li>
+			    	<li><a href="#">SCH/0002</a></li>
+			    	<li><a href="#">TRF/0003</a></li>
+			   </ul>
+			   
+			   
+			</div>
+			
+			<div data-role="footer">
+				<h4>&copy;2014 Travel Republic Limited.</h4>
+			</div>
+		</div>
+		
+		
+		<!-- My Favorites page -->
+		
+		<div data-role="page" id="myFavoritesPage" data-theme="a" class="jqm-demos ui-responsive-panel">
+			<div data-role="header" id="page1-header">
+				<h1>TravelRepublic</h1>
+				<a href="#hotelsPage" class="home" id="home1" data-icon="home" data-iconpos="notext"></a>
+				<a href="#my-account3" data-icon="gear" data-iconpos="notext" class="ui-btn-right"></a>
+			</div>
+			
+			<div data-role="content">
+				<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" data-mini="true" id="my-account3" class="my-account" data-dismissible="true">
+			    	<ul data-role="listview">
+			            <li data-icon="false"><a href="#myBookingsPage">My Bookings</a></li>
+			            <li data-icon="false"><a href="#myDetailsPage">My Details</a></li>
+			            <li data-icon="false"><a href="#myFavoritesPage">Favorites</a></li>
+						<li data-icon="false"><a href="#notificationsPage">Notifications</a></li>
+						<li data-icon="false"><a href="#settingsPage">Settings</a></li>
+						<!--li data-icon="false"><a href="#panel-responsive-page2">Contact Us</a></li-->
+			            <!--li data-icon="false" data-theme="a"><a href="#panel-responsive-page2">Log Out</a></li-->
+			            
+			         </ul>
+			    </div>
+			    
+			    <div>
+					<ul data-role="listview">
+				    	<li data-role="list-divider">Favourite Hotels</li>
+				    	<li><a href="#">Hotel 1</a></li>
+				    	<li><a href="#">Hotel 2</a></li>
+				    	<li><a href="#">Hotel 3</a></li>
+				    	<li></li>
+				   </ul>
+	  			</div>
+	  			<div>
+			   		<ul data-role="listview">
+				    	<li data-role="list-divider">Favourite Holiday destinations</li>
+				    	<li><a href="#">Las Vegas, USA</a></li>
+				    	<li><a href="#">Alicante, Spain</a></li>
+				    	<li><a href="#">Athens, Greece</a></li>	
+				    	<li></li>		    	
+					</ul>
+				</div>
+			</div>
+			
+			<div data-role="footer">
+				<h4>&copy;2014 Travel Republic Limited.</h4>
+			</div>
+		</div>
+		
+		<!-- Notifications page -->
+		
+		<div data-role="page" id="notificationsPage" data-theme="a" class="jqm-demos ui-responsive-panel">
+			<div data-role="header">
+				<h1>TravelRepublic</h1>
+				<a href="#hotelsPage" class="home" id="home1" data-icon="home" data-iconpos="notext"></a>
+				<a href="#my-account6" data-icon="gear" data-iconpos="notext" class="ui-btn-right"></a>
+			</div>
+			
+			<div data-role="content">
+				<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" data-mini="true" id="my-account6" class="my-account" data-dismissible="true">
+			    	<ul data-role="listview">
+			            <li data-icon="false"><a href="#myBookingsPage">My Bookings</a></li>
+			            <li data-icon="false"><a href="#myDetailsPage">My Details</a></li>
+			            <li data-icon="false"><a href="#myFavoritesPage">Favorites</a></li>
+						<li data-icon="false"><a href="#notificationsPage">Notifications</a></li>
+						<li data-icon="false"><a href="#settingsPage">Settings</a></li>
+						<!--li data-icon="false"><a href="#panel-responsive-page2">Contact Us</a></li-->
+			            <!--li data-icon="false" data-theme="a"><a href="#panel-responsive-page2">Log Out</a></li-->
+			            
+			         </ul>
+			    </div>
+				<ul data-role="listview">
+			    	<li data-role="list-divider">Notifications</li>
+			    	<li><a href="#">Upto 50% off sale extended till 10 Feb</a></li>
+			    	
+			    	<li></li>
+			   </ul>
+			   
+			   
+			</div>
+			
+			<div data-role="footer">
+				<h4>&copy;2014 Travel Republic Limited.</h4>
+			</div>
+		</div>
+		
+		<!-- Settings page -->
+		
+		<div data-role="page" id="settingsPage" data-theme="a" class="jqm-demos ui-responsive-panel">
+			<div data-role="header">
+				<h1>TravelRepublic</h1>
+				<a href="#hotelsPage" class="home" id="home1" data-icon="home" data-iconpos="notext"></a>
+				<a href="#my-account7" data-icon="gear" data-iconpos="notext" class="ui-btn-right"></a>
+			</div>
+			
+			<div data-role="content">
+				<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" data-mini="true" id="my-account7" class="my-account" data-dismissible="true">
+			    	<ul data-role="listview">
+			            <li data-icon="false"><a href="#myBookingsPage">My Bookings</a></li>
+			            <li data-icon="false"><a href="#myDetailsPage">My Details</a></li>
+			            <li data-icon="false"><a href="#myFavoritesPage">Favorites</a></li>
+						<li data-icon="false"><a href="#notificationsPage">Notifications</a></li>
+						<li data-icon="false"><a href="#settingsPage">Settings</a></li>
+						<!--li data-icon="false"><a href="#panel-responsive-page2">Contact Us</a></li-->
+			            <!--li data-icon="false" data-theme="a"><a href="#panel-responsive-page2">Log Out</a></li-->
+			            
+			         </ul>
+			    </div>
+			    
+				<ul data-role="listview">
+			    	<li data-role="list-divider">Settings</li>
+			   	</ul>
+			   
+			   	<div class="ui-field-contain">
+					<label for="Language">Language:</label> 
+					<select name="Language" id="Language" data-native-menu="false" data-inline="true" data-mini="true">
+						<option value="english">English</option>
+						<option value="espanol">Espanol</option>
+						<option value="italian">Italian</option>
+					</select> 
+				</div>
+				
+				<div class="ui-field-contain">
+					<label for="dataMode">Data Mode:</label> 
+					<select name="dataMode" id="dataMode" data-native-menu="false" data-inline="true" data-mini="true">
+						<option value="wifi">WiFi</option>
+						<option value="2g">2G</option>
+						<option value="3g">3G</option>
+					</select> 
+				</div>
+			</div>
+			
+			<div data-role="footer">
+				<h4>&copy;2014 Travel Republic Limited.</h4>
+			</div>
+		</div>
+		
+		<!-- hotel search results page -->
+		<div data-role="page" id="hotelResultsPage" data-theme="a" class="jqm-demos ui-responsive-panel">
+			<div data-role="header">
+				<h1>TravelRepublic</h1>
+				<a href="#hotelsPage" class="home" id="home1" data-icon="home" data-iconpos="notext"></a>
+				<a href="#my-account8" data-icon="gear" data-iconpos="notext" class="ui-btn-right"></a>
+			</div>
+			
+			<div data-role="content">
+				<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" data-mini="true" id="my-account8" class="my-account" data-dismissible="true">
+			    	<ul data-role="listview">
+			            <li data-icon="false"><a href="#myBookingsPage">My Bookings</a></li>
+			            <li data-icon="false"><a href="#myDetailsPage">My Details</a></li>
+			            <li data-icon="false"><a href="#myFavoritesPage">Favorites</a></li>
+						<li data-icon="false"><a href="#notificationsPage">Notifications</a></li>
+						<li data-icon="false"><a href="#settingsPage">Settings</a></li>
+						<!--li data-icon="false"><a href="#panel-responsive-page2">Contact Us</a></li-->
+			            <!--li data-icon="false" data-theme="a"><a href="#panel-responsive-page2">Log Out</a></li-->
+			            
+			         </ul>
+			    </div>
+			   
+			   <ul id="availableHotels" data-role="listview" data-inset="true"><h3>Available Hotels:</h3></ul>
+			   
+			</div>
+			
+			<div data-role="footer">
+				<h4>&copy;2014 Travel Republic Limited.</h4>
+			</div>
+		</div>
+		
+	</body>
+	
+	
+	
+</html>
